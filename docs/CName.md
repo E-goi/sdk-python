@@ -5,8 +5,8 @@ CName schema
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cname_id** | **int** |  | [optional] [readonly] 
-**cname** | **str** | CName value | 
-**created** | **datetime** |  | [optional] [readonly] 
+**value** | **str** | CName value | [optional] 
+**status** | **str** | CName status | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

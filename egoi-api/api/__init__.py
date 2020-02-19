@@ -5,6 +5,7 @@ from __future__ import absolute_import
 # import apis into api package
 from egoi-api.api.advanced_reports_api import AdvancedReportsApi
 from egoi-api.api.automations_api import AutomationsApi
+from egoi-api.api.c_names_api import CNamesApi
 from egoi-api.api.campaign_groups_api import CampaignGroupsApi
 from egoi-api.api.campaigns_api import CampaignsApi
 from egoi-api.api.contacts_api import ContactsApi
@@ -19,6 +20,7 @@ from egoi-api.api.push_api import PushApi
 from egoi-api.api.reports_api import ReportsApi
 from egoi-api.api.segments_api import SegmentsApi
 from egoi-api.api.senders_api import SendersApi
+from egoi-api.api.smart_sms_api import SmartSmsApi
 from egoi-api.api.sms_api import SmsApi
 from egoi-api.api.suppression_list_api import SuppressionListApi
 from egoi-api.api.tags_api import TagsApi
