@@ -3,7 +3,7 @@
 """
     APIv3 (Beta)
 
-     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>  # noqa: E501
+     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>  # noqa: E501
 
     The version of the OpenAPI document: 3.0.0-beta
     Generated by: https://openapi-generator.tech
@@ -35,6 +35,128 @@ class ContactsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+    def action_activate_contacts(self, list_id, activate_contacts_request, **kwargs):  # noqa: E501
+        """Activate contacts  # noqa: E501
+
+        Activates a collection of contacts (does not apply to removed contacts)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_activate_contacts(list_id, activate_contacts_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param ActivateContactsRequest activate_contacts_request: Parameters for the request (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: AcceptedResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.action_activate_contacts_with_http_info(list_id, activate_contacts_request, **kwargs)  # noqa: E501
+
+    def action_activate_contacts_with_http_info(self, list_id, activate_contacts_request, **kwargs):  # noqa: E501
+        """Activate contacts  # noqa: E501
+
+        Activates a collection of contacts (does not apply to removed contacts)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_activate_contacts_with_http_info(list_id, activate_contacts_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param ActivateContactsRequest activate_contacts_request: Parameters for the request (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(AcceptedResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['list_id', 'activate_contacts_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method action_activate_contacts" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'list_id' is set
+        if self.api_client.client_side_validation and ('list_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['list_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `list_id` when calling `action_activate_contacts`")  # noqa: E501
+        # verify the required parameter 'activate_contacts_request' is set
+        if self.api_client.client_side_validation and ('activate_contacts_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['activate_contacts_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `activate_contacts_request` when calling `action_activate_contacts`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'list_id' in local_var_params and local_var_params['list_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `list_id` when calling `action_activate_contacts`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'list_id' in local_var_params:
+            path_params['list_id'] = local_var_params['list_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'activate_contacts_request' in local_var_params:
+            body_params = local_var_params['activate_contacts_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/lists/{list_id}/contacts/actions/activate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AcceptedResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
 
     def action_attach_tag(self, list_id, attach_tag_request, **kwargs):  # noqa: E501
         """Attach tag to contact  # noqa: E501
@@ -151,6 +273,128 @@ class ContactsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AttachTagResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def action_deactivate_contacts(self, list_id, deactivate_contacts_request, **kwargs):  # noqa: E501
+        """Deactivate contacts  # noqa: E501
+
+        Deactivates a collection of contacts (does not apply to removed contacts)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_deactivate_contacts(list_id, deactivate_contacts_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param DeactivateContactsRequest deactivate_contacts_request: Parameters for the request (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: AcceptedResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.action_deactivate_contacts_with_http_info(list_id, deactivate_contacts_request, **kwargs)  # noqa: E501
+
+    def action_deactivate_contacts_with_http_info(self, list_id, deactivate_contacts_request, **kwargs):  # noqa: E501
+        """Deactivate contacts  # noqa: E501
+
+        Deactivates a collection of contacts (does not apply to removed contacts)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_deactivate_contacts_with_http_info(list_id, deactivate_contacts_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param DeactivateContactsRequest deactivate_contacts_request: Parameters for the request (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(AcceptedResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['list_id', 'deactivate_contacts_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method action_deactivate_contacts" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'list_id' is set
+        if self.api_client.client_side_validation and ('list_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['list_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `list_id` when calling `action_deactivate_contacts`")  # noqa: E501
+        # verify the required parameter 'deactivate_contacts_request' is set
+        if self.api_client.client_side_validation and ('deactivate_contacts_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['deactivate_contacts_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `deactivate_contacts_request` when calling `action_deactivate_contacts`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'list_id' in local_var_params and local_var_params['list_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `list_id` when calling `action_deactivate_contacts`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'list_id' in local_var_params:
+            path_params['list_id'] = local_var_params['list_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'deactivate_contacts_request' in local_var_params:
+            body_params = local_var_params['deactivate_contacts_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/lists/{list_id}/contacts/actions/deactivate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AcceptedResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -402,10 +646,132 @@ class ContactsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def action_forget_contacts(self, list_id, contact_forget_request, **kwargs):  # noqa: E501
+        """Forget contacts  # noqa: E501
+
+        Forgets a list of contacts to the desired callback url  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_forget_contacts(list_id, contact_forget_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param ContactForgetRequest contact_forget_request: Parameters for the action (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: AcceptedResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.action_forget_contacts_with_http_info(list_id, contact_forget_request, **kwargs)  # noqa: E501
+
+    def action_forget_contacts_with_http_info(self, list_id, contact_forget_request, **kwargs):  # noqa: E501
+        """Forget contacts  # noqa: E501
+
+        Forgets a list of contacts to the desired callback url  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.action_forget_contacts_with_http_info(list_id, contact_forget_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int list_id: ID of the List (required)
+        :param ContactForgetRequest contact_forget_request: Parameters for the action (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(AcceptedResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['list_id', 'contact_forget_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method action_forget_contacts" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'list_id' is set
+        if self.api_client.client_side_validation and ('list_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['list_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `list_id` when calling `action_forget_contacts`")  # noqa: E501
+        # verify the required parameter 'contact_forget_request' is set
+        if self.api_client.client_side_validation and ('contact_forget_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['contact_forget_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `contact_forget_request` when calling `action_forget_contacts`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'list_id' in local_var_params and local_var_params['list_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `list_id` when calling `action_forget_contacts`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'list_id' in local_var_params:
+            path_params['list_id'] = local_var_params['list_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'contact_forget_request' in local_var_params:
+            body_params = local_var_params['contact_forget_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/lists/{list_id}/contacts/actions/forget', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AcceptedResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def action_import_bulk(self, list_id, import_bulk_request, **kwargs):  # noqa: E501
         """Import collection of contacts  # noqa: E501
 
-        Imports a collection of contacts  # noqa: E501
+        Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.action_import_bulk(list_id, import_bulk_request, async_req=True)
@@ -431,7 +797,7 @@ class ContactsApi(object):
     def action_import_bulk_with_http_info(self, list_id, import_bulk_request, **kwargs):  # noqa: E501
         """Import collection of contacts  # noqa: E501
 
-        Imports a collection of contacts  # noqa: E501
+        Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.action_import_bulk_with_http_info(list_id, import_bulk_request, async_req=True)
@@ -1045,6 +1411,7 @@ class ContactsApi(object):
         :param int list_id: ID of the List (required)
         :param int offset: Element offset (starting at zero for the first element)
         :param int limit: Number of items to return
+        :param str email: Email of the contacts to return
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1072,6 +1439,7 @@ class ContactsApi(object):
         :param int list_id: ID of the List (required)
         :param int offset: Element offset (starting at zero for the first element)
         :param int limit: Number of items to return
+        :param str email: Email of the contacts to return
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1088,7 +1456,7 @@ class ContactsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['list_id', 'offset', 'limit']  # noqa: E501
+        all_params = ['list_id', 'offset', 'limit', 'email']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1126,6 +1494,8 @@ class ContactsApi(object):
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'email' in local_var_params and local_var_params['email'] is not None:  # noqa: E501
+            query_params.append(('email', local_var_params['email']))  # noqa: E501
 
         header_params = {}
 
@@ -1401,6 +1771,118 @@ class ContactsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateContactResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_contacts(self, contact, **kwargs):  # noqa: E501
+        """Search contact  # noqa: E501
+
+        Searches a contact across all lists and returns a collection of contacts found  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_contacts(contact, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str contact: Contact to search (required)
+        :param str type: Type of contact to search (defaults to 'email')
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.search_contacts_with_http_info(contact, **kwargs)  # noqa: E501
+
+    def search_contacts_with_http_info(self, contact, **kwargs):  # noqa: E501
+        """Search contact  # noqa: E501
+
+        Searches a contact across all lists and returns a collection of contacts found  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_contacts_with_http_info(contact, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str contact: Contact to search (required)
+        :param str type: Type of contact to search (defaults to 'email')
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['contact', 'type']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_contacts" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'contact' is set
+        if self.api_client.client_side_validation and ('contact' not in local_var_params or  # noqa: E501
+                                                        local_var_params['contact'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `contact` when calling `search_contacts`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'contact' in local_var_params and local_var_params['contact'] is not None:  # noqa: E501
+            query_params.append(('contact', local_var_params['contact']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/contacts/search', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse200',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

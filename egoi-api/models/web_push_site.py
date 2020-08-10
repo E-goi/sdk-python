@@ -3,7 +3,7 @@
 """
     APIv3 (Beta)
 
-     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>  # noqa: E501
+     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>  # noqa: E501
 
     The version of the OpenAPI document: 3.0.0-beta
     Generated by: https://openapi-generator.tech
@@ -34,33 +34,43 @@ class WebPushSite(object):
     """
     openapi_types = {
         'site_id': 'int',
-        'list_id': 'str',
-        'app_code': 'str'
+        'site': 'str',
+        'list_id': 'int',
+        'app_code': 'str',
+        'name': 'str'
     }
 
     attribute_map = {
         'site_id': 'site_id',
+        'site': 'site',
         'list_id': 'list_id',
-        'app_code': 'app_code'
+        'app_code': 'app_code',
+        'name': 'name'
     }
 
-    def __init__(self, site_id=None, list_id=None, app_code=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, site_id=None, site=None, list_id=None, app_code=None, name=None, local_vars_configuration=None):  # noqa: E501
         """WebPushSite - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._site_id = None
+        self._site = None
         self._list_id = None
         self._app_code = None
+        self._name = None
         self.discriminator = None
 
         if site_id is not None:
             self.site_id = site_id
+        if site is not None:
+            self.site = site
         if list_id is not None:
             self.list_id = list_id
         if app_code is not None:
             self.app_code = app_code
+        if name is not None:
+            self.name = name
 
     @property
     def site_id(self):
@@ -87,13 +97,35 @@ class WebPushSite(object):
         self._site_id = site_id
 
     @property
+    def site(self):
+        """Gets the site of this WebPushSite.  # noqa: E501
+
+        Webpush site  # noqa: E501
+
+        :return: The site of this WebPushSite.  # noqa: E501
+        :rtype: str
+        """
+        return self._site
+
+    @site.setter
+    def site(self, site):
+        """Sets the site of this WebPushSite.
+
+        Webpush site  # noqa: E501
+
+        :param site: The site of this WebPushSite.  # noqa: E501
+        :type: str
+        """
+
+        self._site = site
+
+    @property
     def list_id(self):
         """Gets the list_id of this WebPushSite.  # noqa: E501
 
-        Name of the tag  # noqa: E501
 
         :return: The list_id of this WebPushSite.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._list_id
 
@@ -101,11 +133,13 @@ class WebPushSite(object):
     def list_id(self, list_id):
         """Sets the list_id of this WebPushSite.
 
-        Name of the tag  # noqa: E501
 
         :param list_id: The list_id of this WebPushSite.  # noqa: E501
-        :type: str
+        :type: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                list_id is not None and list_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `list_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._list_id = list_id
 
@@ -131,6 +165,29 @@ class WebPushSite(object):
         """
 
         self._app_code = app_code
+
+    @property
+    def name(self):
+        """Gets the name of this WebPushSite.  # noqa: E501
+
+        Webpush name  # noqa: E501
+
+        :return: The name of this WebPushSite.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this WebPushSite.
+
+        Webpush name  # noqa: E501
+
+        :param name: The name of this WebPushSite.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

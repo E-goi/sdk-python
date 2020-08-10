@@ -5,7 +5,7 @@
 """
     APIv3 (Beta)
 
-     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>  # noqa: E501
+     # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>  # noqa: E501
 
     The version of the OpenAPI document: 3.0.0-beta
     Generated by: https://openapi-generator.tech
@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.0.0RC1"
+__version__ = "1.1.0RC2"
 
 # import apis into sdk package
 from egoi-api.api.advanced_reports_api import AdvancedReportsApi
@@ -41,6 +41,7 @@ from egoi-api.api.tags_api import TagsApi
 from egoi-api.api.users_api import UsersApi
 from egoi-api.api.utilities_api import UtilitiesApi
 from egoi-api.api.voice_api import VoiceApi
+from egoi-api.api.web_hooks_api import WebHooksApi
 from egoi-api.api.webpush_api import WebpushApi
 
 # import ApiClient
@@ -62,6 +63,9 @@ from egoi-api.models.abstract_send_email import AbstractSendEmail
 from egoi-api.models.abstract_send_voice import AbstractSendVoice
 from egoi-api.models.abstract_send_voice_all_of import AbstractSendVoiceAllOf
 from egoi-api.models.accepted_response import AcceptedResponse
+from egoi-api.models.activate_contacts_all import ActivateContactsAll
+from egoi-api.models.activate_contacts_many import ActivateContactsMany
+from egoi-api.models.activate_contacts_request import ActivateContactsRequest
 from egoi-api.models.activity_collection import ActivityCollection
 from egoi-api.models.advanced_report import AdvancedReport
 from egoi-api.models.advanced_report_campaigns_object import AdvancedReportCampaignsObject
@@ -164,6 +168,8 @@ from egoi-api.models.catalog_collection import CatalogCollection
 from egoi-api.models.catalog_post_request import CatalogPostRequest
 from egoi-api.models.cellphone_sender import CellphoneSender
 from egoi-api.models.cellphone_sender_collection import CellphoneSenderCollection
+from egoi-api.models.cname_exists import CnameExists
+from egoi-api.models.cname_exists_errors import CnameExistsErrors
 from egoi-api.models.complex_contact import ComplexContact
 from egoi-api.models.complex_contact_all_of import ComplexContactAllOf
 from egoi-api.models.complex_contact_all_of_email_stats import ComplexContactAllOfEmailStats
@@ -214,9 +220,11 @@ from egoi-api.models.contact_extra_fields import ContactExtraFields
 from egoi-api.models.contact_extra_fields_bulk import ContactExtraFieldsBulk
 from egoi-api.models.contact_extra_fields_bulk_schema import ContactExtraFieldsBulkSchema
 from egoi-api.models.contact_extra_fields_schema import ContactExtraFieldsSchema
+from egoi-api.models.contact_forget_request import ContactForgetRequest
 from egoi-api.models.contact_inside_base import ContactInsideBase
 from egoi-api.models.contact_inside_base_bulk import ContactInsideBaseBulk
 from egoi-api.models.contact_other_activity import ContactOtherActivity
+from egoi-api.models.contact_search_response import ContactSearchResponse
 from egoi-api.models.contact_status_fields_bulk_schema import ContactStatusFieldsBulkSchema
 from egoi-api.models.contact_status_fields_schema import ContactStatusFieldsSchema
 from egoi-api.models.contact_tags import ContactTags
@@ -228,6 +236,9 @@ from egoi-api.models.content_voice_template import ContentVoiceTemplate
 from egoi-api.models.country import Country
 from egoi-api.models.country_collection import CountryCollection
 from egoi-api.models.create_contact_response import CreateContactResponse
+from egoi-api.models.deactivate_contacts_all import DeactivateContactsAll
+from egoi-api.models.deactivate_contacts_many import DeactivateContactsMany
+from egoi-api.models.deactivate_contacts_request import DeactivateContactsRequest
 from egoi-api.models.delete_campaigns_conflict import DeleteCampaignsConflict
 from egoi-api.models.delete_fields_conflict import DeleteFieldsConflict
 from egoi-api.models.delete_lists_conflict import DeleteListsConflict
@@ -302,7 +313,10 @@ from egoi-api.models.header_footer_footer_links import HeaderFooterFooterLinks
 from egoi-api.models.header_footer_header_links import HeaderFooterHeaderLinks
 from egoi-api.models.header_footer_template import HeaderFooterTemplate
 from egoi-api.models.import_bulk_request import ImportBulkRequest
+from egoi-api.models.import_orders_bulk_bulk_request import ImportOrdersBulkBulkRequest
+from egoi-api.models.import_orders_bulk_bulk_request_items import ImportOrdersBulkBulkRequestItems
 from egoi-api.models.inline_object import InlineObject
+from egoi-api.models.inline_response200 import InlineResponse200
 from egoi-api.models.internal_server_error import InternalServerError
 from egoi-api.models.invalid_segment_type import InvalidSegmentType
 from egoi-api.models.invalid_segment_type_errors import InvalidSegmentTypeErrors
@@ -315,6 +329,7 @@ from egoi-api.models.limit_hour_action_send_limit_hour import LimitHourActionSen
 from egoi-api.models.limit_speed_action_send import LimitSpeedActionSend
 from egoi-api.models.list import List
 from egoi-api.models.list_collection import ListCollection
+from egoi-api.models.list_collection1 import ListCollection1
 from egoi-api.models.list_limit_reached import ListLimitReached
 from egoi-api.models.list_limit_reached_errors import ListLimitReachedErrors
 from egoi-api.models.message_web_push import MessageWebPush
@@ -324,6 +339,8 @@ from egoi-api.models.module_info import ModuleInfo
 from egoi-api.models.module_info_module_info import ModuleInfoModuleInfo
 from egoi-api.models.module_info_module_info_te import ModuleInfoModuleInfoTe
 from egoi-api.models.my_account import MyAccount
+from egoi-api.models.name_already_exists import NameAlreadyExists
+from egoi-api.models.name_already_exists_errors import NameAlreadyExistsErrors
 from egoi-api.models.not_found import NotFound
 from egoi-api.models.notify_user_id_array_action_send import NotifyUserIdArrayActionSend
 from egoi-api.models.now import Now
@@ -354,10 +371,12 @@ from egoi-api.models.phone_sender_collection import PhoneSenderCollection
 from egoi-api.models.ping import Ping
 from egoi-api.models.plan_info import PlanInfo
 from egoi-api.models.plan_info_plan_info import PlanInfoPlanInfo
+from egoi-api.models.post_c_name_conflict import PostCNameConflict
 from egoi-api.models.post_contacts_conflict import PostContactsConflict
 from egoi-api.models.post_lists_conflict import PostListsConflict
 from egoi-api.models.post_products_conflict import PostProductsConflict
 from egoi-api.models.post_request_list import PostRequestList
+from egoi-api.models.post_webpush_site_conflict import PostWebpushSiteConflict
 from egoi-api.models.product import Product
 from egoi-api.models.product_all_of import ProductAllOf
 from egoi-api.models.product_already_exists import ProductAlreadyExists
@@ -475,4 +494,6 @@ from egoi-api.models.web_push_report_operating_systems import WebPushReportOpera
 from egoi-api.models.web_push_rss_campaign import WebPushRssCampaign
 from egoi-api.models.web_push_site import WebPushSite
 from egoi-api.models.web_push_stats import WebPushStats
+from egoi-api.models.webhook import Webhook
+from egoi-api.models.webhook_action_schema import WebhookActionSchema
 

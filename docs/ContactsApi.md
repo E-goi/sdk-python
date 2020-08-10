@@ -4,9 +4,12 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**action_activate_contacts**](ContactsApi.md#action_activate_contacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
 [**action_attach_tag**](ContactsApi.md#action_attach_tag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+[**action_deactivate_contacts**](ContactsApi.md#action_deactivate_contacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
 [**action_detach_tag**](ContactsApi.md#action_detach_tag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 [**action_export_contacts**](ContactsApi.md#action_export_contacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+[**action_forget_contacts**](ContactsApi.md#action_forget_contacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
 [**action_import_bulk**](ContactsApi.md#action_import_bulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 [**action_start_automation**](ContactsApi.md#action_start_automation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 [**action_unsubscribe_contact**](ContactsApi.md#action_unsubscribe_contact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
@@ -15,7 +18,78 @@ Method | HTTP request | Description
 [**get_all_contacts**](ContactsApi.md#get_all_contacts) | **GET** /lists/{list_id}/contacts | Get all contacts
 [**get_contact**](ContactsApi.md#get_contact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**patch_contact**](ContactsApi.md#patch_contact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+[**search_contacts**](ContactsApi.md#search_contacts) | **GET** /contacts/search | Search contact
 
+
+# **action_activate_contacts**
+> AcceptedResponse action_activate_contacts(list_id, activate_contacts_request)
+
+Activate contacts
+
+Activates a collection of contacts (does not apply to removed contacts)
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi-api
+from egoi-api.rest import ApiException
+from pprint import pprint
+configuration = egoi-api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi-api.ContactsApi(egoi-api.ApiClient(configuration))
+list_id = 56 # int | ID of the List
+activate_contacts_request = egoi-api.ActivateContactsRequest() # ActivateContactsRequest | Parameters for the request
+
+try:
+    # Activate contacts
+    api_response = api_instance.action_activate_contacts(list_id, activate_contacts_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContactsApi->action_activate_contacts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List | 
+ **activate_contacts_request** | [**ActivateContactsRequest**](ActivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **action_attach_tag**
 > AttachTagResponse action_attach_tag(list_id, attach_tag_request)
@@ -78,6 +152,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **action_deactivate_contacts**
+> AcceptedResponse action_deactivate_contacts(list_id, deactivate_contacts_request)
+
+Deactivate contacts
+
+Deactivates a collection of contacts (does not apply to removed contacts)
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi-api
+from egoi-api.rest import ApiException
+from pprint import pprint
+configuration = egoi-api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi-api.ContactsApi(egoi-api.ApiClient(configuration))
+list_id = 56 # int | ID of the List
+deactivate_contacts_request = egoi-api.DeactivateContactsRequest() # DeactivateContactsRequest | Parameters for the request
+
+try:
+    # Deactivate contacts
+    api_response = api_instance.action_deactivate_contacts(list_id, deactivate_contacts_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContactsApi->action_deactivate_contacts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List | 
+ **deactivate_contacts_request** | [**DeactivateContactsRequest**](DeactivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
@@ -227,12 +371,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **action_forget_contacts**
+> AcceptedResponse action_forget_contacts(list_id, contact_forget_request)
+
+Forget contacts
+
+Forgets a list of contacts to the desired callback url
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi-api
+from egoi-api.rest import ApiException
+from pprint import pprint
+configuration = egoi-api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi-api.ContactsApi(egoi-api.ApiClient(configuration))
+list_id = 56 # int | ID of the List
+contact_forget_request = egoi-api.ContactForgetRequest() # ContactForgetRequest | Parameters for the action
+
+try:
+    # Forget contacts
+    api_response = api_instance.action_forget_contacts(list_id, contact_forget_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContactsApi->action_forget_contacts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List | 
+ **contact_forget_request** | [**ContactForgetRequest**](ContactForgetRequest.md)| Parameters for the action | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **action_import_bulk**
 > AcceptedResponse action_import_bulk(list_id, import_bulk_request)
 
 Import collection of contacts
 
-Imports a collection of contacts
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
 
 ### Example
 
@@ -583,7 +797,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_contacts**
-> ContactCollection get_all_contacts(list_id, offset=offset, limit=limit)
+> ContactCollection get_all_contacts(list_id, offset=offset, limit=limit, email=email)
 
 Get all contacts
 
@@ -611,10 +825,11 @@ api_instance = egoi-api.ContactsApi(egoi-api.ApiClient(configuration))
 list_id = 56 # int | ID of the List
 offset = 56 # int | Element offset (starting at zero for the first element) (optional)
 limit = 10 # int | Number of items to return (optional) (default to 10)
+email = 'email_example' # str | Email of the contacts to return (optional)
 
 try:
     # Get all contacts
-    api_response = api_instance.get_all_contacts(list_id, offset=offset, limit=limit)
+    api_response = api_instance.get_all_contacts(list_id, offset=offset, limit=limit, email=email)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContactsApi->get_all_contacts: %s\n" % e)
@@ -627,6 +842,7 @@ Name | Type | Description  | Notes
  **list_id** | **int**| ID of the List | 
  **offset** | **int**| Element offset (starting at zero for the first element) | [optional] 
  **limit** | **int**| Number of items to return | [optional] [default to 10]
+ **email** | **str**| Email of the contacts to return | [optional] 
 
 ### Return type
 
@@ -786,6 +1002,75 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_contacts**
+> InlineResponse200 search_contacts(contact, type=type)
+
+Search contact
+
+Searches a contact across all lists and returns a collection of contacts found
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi-api
+from egoi-api.rest import ApiException
+from pprint import pprint
+configuration = egoi-api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi-api.ContactsApi(egoi-api.ApiClient(configuration))
+contact = 'contact_example' # str | Contact to search
+type = 'email' # str | Type of contact to search (defaults to 'email') (optional) (default to 'email')
+
+try:
+    # Search contact
+    api_response = api_instance.search_contacts(contact, type=type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContactsApi->search_contacts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contact** | **str**| Contact to search | 
+ **type** | **str**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to &#39;email&#39;]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |

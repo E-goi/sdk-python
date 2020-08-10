@@ -27,4 +27,5 @@ from egoi-api.api.tags_api import TagsApi
 from egoi-api.api.users_api import UsersApi
 from egoi-api.api.utilities_api import UtilitiesApi
 from egoi-api.api.voice_api import VoiceApi
+from egoi-api.api.web_hooks_api import WebHooksApi
 from egoi-api.api.webpush_api import WebpushApi

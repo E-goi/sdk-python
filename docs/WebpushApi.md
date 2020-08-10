@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**action_send_web_push**](WebpushApi.md#action_send_web_push) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
 [**create_web_push_campaign**](WebpushApi.md#create_web_push_campaign) | **POST** /campaigns/web-push | Create new webpush campaign
 [**create_web_push_rss_campaign**](WebpushApi.md#create_web_push_rss_campaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-[**get_all_web_push_sites**](WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/site | Get all webpush sites
+[**create_webpush_site**](WebpushApi.md#create_webpush_site) | **POST** /webpush/sites | Creates a webpush site
+[**get_all_web_push_sites**](WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/sites | Get all webpush sites
 [**patch_web_push_campaign**](WebpushApi.md#patch_web_push_campaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
 
 
@@ -279,6 +280,74 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**409** | Conflict |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_webpush_site**
+> WebPushSite create_webpush_site(web_push_site)
+
+Creates a webpush site
+
+Create a new webpush site
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi-api
+from egoi-api.rest import ApiException
+from pprint import pprint
+configuration = egoi-api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
+web_push_site = egoi-api.WebPushSite() # WebPushSite | Parameters for the webpush site
+
+try:
+    # Creates a webpush site
+    api_response = api_instance.create_webpush_site(web_push_site)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling WebpushApi->create_webpush_site: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **web_push_site** | [**WebPushSite**](WebPushSite.md)| Parameters for the webpush site | 
+
+### Return type
+
+[**WebPushSite**](WebPushSite.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |

@@ -5,8 +5,10 @@ WebPush site schema
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **site_id** | **int** |  | [optional] [readonly] 
-**list_id** | **str** | Name of the tag | [optional] 
-**app_code** | **str** | App code | [optional] 
+**site** | **str** | Webpush site | [optional] 
+**list_id** | **int** |  | [optional] 
+**app_code** | **str** | App code | [optional] [readonly] 
+**name** | **str** | Webpush name | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
