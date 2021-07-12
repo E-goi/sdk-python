@@ -1,4 +1,4 @@
-# egoi-api.PingApi
+# egoi_api.PingApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -19,12 +19,12 @@ Checks if API is up and running
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = egoi-api.PingApi()
+api_instance = egoi_api.PingApi()
 
 try:
     # Pings the API
@@ -55,6 +55,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

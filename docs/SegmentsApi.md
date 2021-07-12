@@ -1,4 +1,4 @@
-# egoi-api.SegmentsApi
+# egoi_api.SegmentsApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -21,10 +21,10 @@ Remove segment information given its ID
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -33,7 +33,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.SegmentsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.SegmentsApi(egoi_api.ApiClient(configuration))
 segment_id = 'segment_id_example' # str | ID of the Segment
 list_id = 56 # int | ID of the List
 
@@ -71,8 +71,11 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -89,10 +92,10 @@ Returns all segments
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -101,7 +104,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.SegmentsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.SegmentsApi(egoi_api.ApiClient(configuration))
 list_id = 56 # int | ID of the List
 type = 'type_example' # str | Type of segment (optional)
 name = 'name_example' # str | Segment name (optional)
@@ -145,8 +148,11 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

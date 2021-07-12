@@ -1,4 +1,4 @@
-# egoi-api.VoiceApi
+# egoi_api.VoiceApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -22,10 +22,10 @@ Deploys and sends an voice message
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -34,7 +34,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.VoiceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.VoiceApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
 campaign_voice_send_request = {"schedule_date":"2019-04-01 12:30:23","list_id":1,"segments":{"type":"none"},"notify":[0],"destination_field":"cellphone","limit_contacts":{"type":"percent","value":10},"limit_hour":{"hour_start":"01:00","hour_end":"04:00"},"limit_speed":1} # CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
@@ -74,7 +74,9 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -91,10 +93,10 @@ Create a new voice campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -103,8 +105,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.VoiceApi(egoi-api.ApiClient(configuration))
-voice_campaign = egoi-api.VoiceCampaign() # VoiceCampaign | Parameters for the Voice Campaign
+api_instance = egoi_api.VoiceApi(egoi_api.ApiClient(configuration))
+voice_campaign = egoi_api.VoiceCampaign() # VoiceCampaign | Parameters for the Voice Campaign
 
 try:
     # Create new voice campaign
@@ -142,7 +144,9 @@ Name | Type | Description  | Notes
 **403** | Forbidden |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -159,10 +163,10 @@ Update a voice campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -171,9 +175,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.VoiceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.VoiceApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
-voice_patch_campaign = egoi-api.VoicePatchCampaign() # VoicePatchCampaign | Parameters for the Voice Campaign
+voice_patch_campaign = egoi_api.VoicePatchCampaign() # VoicePatchCampaign | Parameters for the Voice Campaign
 
 try:
     # Update a specific voice campaign
@@ -211,8 +215,11 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,4 +1,4 @@
-# egoi-api.TagsApi
+# egoi_api.TagsApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -23,10 +23,10 @@ Create a new tag
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -35,8 +35,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.TagsApi(egoi-api.ApiClient(configuration))
-tag_request = egoi-api.TagRequest() # TagRequest | Parameters for the Tag
+api_instance = egoi_api.TagsApi(egoi_api.ApiClient(configuration))
+tag_request = egoi_api.TagRequest() # TagRequest | Parameters for the Tag
 
 try:
     # Create new tag
@@ -72,9 +72,12 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -91,10 +94,10 @@ Remove tag information given its ID
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -103,7 +106,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.TagsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.TagsApi(egoi_api.ApiClient(configuration))
 tag_id = 56 # int | ID of the Tag
 
 try:
@@ -139,8 +142,11 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -157,10 +163,10 @@ Returns all tags
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -169,7 +175,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.TagsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.TagsApi(egoi_api.ApiClient(configuration))
 offset = 56 # int | Element offset (starting at zero for the first element) (optional)
 limit = 10 # int | Number of items to return (optional) (default to 10)
 order = 'desc' # str | Type of order (optional) (default to 'desc')
@@ -211,8 +217,11 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -229,10 +238,10 @@ Update a tag
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -241,9 +250,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.TagsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.TagsApi(egoi_api.ApiClient(configuration))
 tag_id = 56 # int | ID of the Tag
-tag_request = egoi-api.TagRequest() # TagRequest | Parameters for the tag
+tag_request = egoi_api.TagRequest() # TagRequest | Parameters for the tag
 
 try:
     # Update a specific tag
@@ -281,9 +290,12 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

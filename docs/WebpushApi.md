@@ -1,4 +1,4 @@
-# egoi-api.WebpushApi
+# egoi_api.WebpushApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -26,10 +26,10 @@ Enable rss webpush message
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -38,7 +38,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
 
 try:
@@ -76,7 +76,9 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -93,10 +95,10 @@ Deploys and sends a webpush message
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -105,9 +107,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
-campaign_web_push_send_request = egoi-api.CampaignWebPushSendRequest() # CampaignWebPushSendRequest | Parameters for the 'send web-push' action
+campaign_web_push_send_request = egoi_api.CampaignWebPushSendRequest() # CampaignWebPushSendRequest | Parameters for the 'send web-push' action
 
 try:
     # Send webpush message
@@ -145,7 +147,9 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -162,10 +166,10 @@ Create a new webpush campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -174,8 +178,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
-web_push_campaign = egoi-api.WebPushCampaign() # WebPushCampaign | Parameters for the webpush campaign
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
+web_push_campaign = egoi_api.WebPushCampaign() # WebPushCampaign | Parameters for the webpush campaign
 
 try:
     # Create new webpush campaign
@@ -213,7 +217,9 @@ Name | Type | Description  | Notes
 **403** | Forbidden |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -230,10 +236,10 @@ Create a new webpush rss campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -242,8 +248,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
-web_push_rss_campaign = egoi-api.WebPushRssCampaign() # WebPushRssCampaign | Parameters for the WebPush Campaign
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
+web_push_rss_campaign = egoi_api.WebPushRssCampaign() # WebPushRssCampaign | Parameters for the WebPush Campaign
 
 try:
     # Create new webpush rss campaign
@@ -280,9 +286,12 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -299,10 +308,10 @@ Create a new webpush site
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -311,8 +320,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
-web_push_site = egoi-api.WebPushSite() # WebPushSite | Parameters for the webpush site
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
+web_push_site = egoi_api.WebPushSite() # WebPushSite | Parameters for the webpush site
 
 try:
     # Creates a webpush site
@@ -348,6 +357,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |
@@ -367,10 +377,10 @@ Returns all wepush's sites
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -379,7 +389,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
 offset = 56 # int | Element offset (starting at zero for the first element) (optional)
 limit = 10 # int | Number of items to return (optional) (default to 10)
 order = 'desc' # str | Type of order (optional) (default to 'desc')
@@ -423,8 +433,11 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -441,10 +454,10 @@ Update a webpush campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -453,9 +466,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.WebpushApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.WebpushApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
-web_push_patch_campaign = egoi-api.WebPushPatchCampaign() # WebPushPatchCampaign | Parameters for the Webpush Campaign
+web_push_patch_campaign = egoi_api.WebPushPatchCampaign() # WebPushPatchCampaign | Parameters for the Webpush Campaign
 
 try:
     # Update a specific webpush campaign
@@ -493,8 +506,11 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

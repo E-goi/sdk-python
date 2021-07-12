@@ -1,20 +1,93 @@
-# egoi-api.EcommerceApi
+# egoi_api.EcommerceApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_cart**](EcommerceApi.md#create_cart) | **POST** /{domain}/carts | Create cart
 [**create_catalog**](EcommerceApi.md#create_catalog) | **POST** /catalogs | Create new catalog
+[**create_order**](EcommerceApi.md#create_order) | **POST** /{domain}/orders | Create order
 [**create_product**](EcommerceApi.md#create_product) | **POST** /catalogs/{catalog_id}/products | Create new product
 [**delete_catalog**](EcommerceApi.md#delete_catalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog
 [**delete_product**](EcommerceApi.md#delete_product) | **DELETE** /catalogs/{catalog_id}/products/{product_identifier} | Remove product
 [**get_all_catalogs**](EcommerceApi.md#get_all_catalogs) | **GET** /catalogs | Get all catalogs
 [**get_all_products**](EcommerceApi.md#get_all_products) | **GET** /catalogs/{catalog_id}/products | Get all products
 [**get_product**](EcommerceApi.md#get_product) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
-[**import_orders_bulk**](EcommerceApi.md#import_orders_bulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
 [**import_products**](EcommerceApi.md#import_products) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
 [**update_product**](EcommerceApi.md#update_product) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
 
+
+# **create_cart**
+> AcceptedResponse create_cart(domain, cart)
+
+Create cart
+
+Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we'll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list's unique fields**). This same logic is also applied to the **product_identifier**.
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi_api
+from egoi_api.rest import ApiException
+from pprint import pprint
+configuration = egoi_api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
+domain = 'domain_example' # str | Domain
+cart = egoi_api.Cart() # Cart | Parameters for the Carts
+
+try:
+    # Create cart
+    api_response = api_instance.create_cart(domain, cart)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EcommerceApi->create_cart: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **str**| Domain | 
+ **cart** | [**Cart**](Cart.md)| Parameters for the Carts | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | NotFound |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_catalog**
 > Catalog create_catalog(catalog_post_request)
@@ -29,10 +102,10 @@ Creates a new catalog
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -41,8 +114,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
-catalog_post_request = egoi-api.CatalogPostRequest() # CatalogPostRequest | Parameters for the Catalog
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
+catalog_post_request = egoi_api.CatalogPostRequest() # CatalogPostRequest | Parameters for the Catalog
 
 try:
     # Create new catalog
@@ -78,8 +151,84 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_order**
+> AcceptedResponse create_order(domain, create_order)
+
+Create order
+
+Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we'll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list's unique fields***). This same logic is also applied to the **product_identifier**.
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+from __future__ import print_function
+import time
+import egoi_api
+from egoi_api.rest import ApiException
+from pprint import pprint
+configuration = egoi_api.Configuration()
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# Defining host is optional and default to https://api.egoiapp.com
+configuration.host = "https://api.egoiapp.com"
+# Create an instance of the API class
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
+domain = 'domain_example' # str | Domain
+create_order = egoi_api.CreateOrder() # CreateOrder | Parameters for the Orders
+
+try:
+    # Create order
+    api_response = api_instance.create_order(domain, create_order)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EcommerceApi->create_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **str**| Domain | 
+ **create_order** | [**CreateOrder**](CreateOrder.md)| Parameters for the Orders | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | NotFound |  -  |
+**408** | Request Timeout |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -96,10 +245,10 @@ Creates a new product
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -108,9 +257,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
-product_post_request = egoi-api.ProductPostRequest() # ProductPostRequest | Parameters for the Product
+product_post_request = egoi_api.ProductPostRequest() # ProductPostRequest | Parameters for the Product
 
 try:
     # Create new product
@@ -148,9 +297,12 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | NotFound |  -  |
+**408** | Request Timeout |  -  |
 **409** | Conflict |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -167,10 +319,10 @@ Remove catalog information given its ID
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -179,7 +331,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
 
 try:
@@ -215,7 +367,10 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -232,10 +387,10 @@ Remove product information given its ID
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -244,7 +399,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
 product_identifier = 'product_identifier_example' # str | ID of the Product
 
@@ -282,7 +437,10 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -299,10 +457,10 @@ Returns all catalogs
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -311,7 +469,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 
 try:
     # Get all catalogs
@@ -343,7 +501,10 @@ This endpoint does not need any parameter.
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -360,10 +521,10 @@ Returns all products for the given catalog
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -372,7 +533,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
 product_identifier = 'product_identifier_example' # str | Product ID in your store (optional)
 offset = 56 # int | Element offset (starting at zero for the first element) (optional)
@@ -415,7 +576,10 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | NotFound |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -432,10 +596,10 @@ Returns product information given its ID
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -444,7 +608,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
 product_identifier = 'product_identifier_example' # str | ID of the Product
 
@@ -483,77 +647,10 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **import_orders_bulk**
-> AcceptedResponse import_orders_bulk(list_id, import_orders_bulk_bulk_request)
-
-Orders import bulk request
-
-Creates new bulk orders syncronization
-
-### Example
-
-* Api Key Authentication (Apikey):
-```python
-from __future__ import print_function
-import time
-import egoi-api
-from egoi-api.rest import ApiException
-from pprint import pprint
-configuration = egoi-api.Configuration()
-# Configure API key authorization: Apikey
-configuration.api_key['Apikey'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Apikey'] = 'Bearer'
-
-# Defining host is optional and default to https://api.egoiapp.com
-configuration.host = "https://api.egoiapp.com"
-# Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
-list_id = 56 # int | ID of the List
-import_orders_bulk_bulk_request = [egoi-api.ImportOrdersBulkBulkRequest()] # list[ImportOrdersBulkBulkRequest] | Parameters for the Orders
-
-try:
-    # Orders import bulk request
-    api_response = api_instance.import_orders_bulk(list_id, import_orders_bulk_bulk_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EcommerceApi->import_orders_bulk: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the List | 
- **import_orders_bulk_bulk_request** | [**list[ImportOrdersBulkBulkRequest]**](ImportOrdersBulkBulkRequest.md)| Parameters for the Orders | 
-
-### Return type
-
-[**AcceptedResponse**](AcceptedResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**404** | NotFound |  -  |
-**422** | Unprocessable Entity |  -  |
-**500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -570,10 +667,10 @@ Imports a collection of products</br>      **DISCLAIMER:** stream limits applied
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -582,9 +679,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
-product_bulk_request = egoi-api.ProductBulkRequest() # ProductBulkRequest | Parameters for the Product
+product_bulk_request = egoi_api.ProductBulkRequest() # ProductBulkRequest | Parameters for the Product
 
 try:
     # Import products
@@ -622,8 +719,11 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | NotFound |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -640,10 +740,10 @@ Updates a product
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -652,10 +752,10 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.EcommerceApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.EcommerceApi(egoi_api.ApiClient(configuration))
 catalog_id = 56 # int | ID of the Catalog
 product_identifier = 'product_identifier_example' # str | ID of the Product
-product_patch_request = egoi-api.ProductPatchRequest() # ProductPatchRequest | Parameters for the product
+product_patch_request = egoi_api.ProductPatchRequest() # ProductPatchRequest | Parameters for the product
 
 try:
     # Update product
@@ -694,8 +794,11 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

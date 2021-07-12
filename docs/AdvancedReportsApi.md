@@ -1,4 +1,4 @@
-# egoi-api.AdvancedReportsApi
+# egoi_api.AdvancedReportsApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -31,10 +31,10 @@ Generates a new email bounces report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -43,8 +43,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_email_bounces_report = egoi-api.GenerateEmailBouncesReport() # GenerateEmailBouncesReport | Parameters for the email bounces report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_email_bounces_report = egoi_api.GenerateEmailBouncesReport() # GenerateEmailBouncesReport | Parameters for the email bounces report
 
 try:
     # Generate email bounces report
@@ -81,7 +81,9 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -98,10 +100,10 @@ Generates a new email clicks by contact report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -110,8 +112,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_email_clicks_by_contact_report = egoi-api.GenerateEmailClicksByContactReport() # GenerateEmailClicksByContactReport | Parameters for the email clicks by contact report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_email_clicks_by_contact_report = egoi_api.GenerateEmailClicksByContactReport() # GenerateEmailClicksByContactReport | Parameters for the email clicks by contact report
 
 try:
     # Generate email clicks by contact report
@@ -147,8 +149,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -165,10 +170,10 @@ Generates a new email clicks by URL report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -177,8 +182,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_email_clicks_by_url_report = egoi-api.GenerateEmailClicksByUrlReport() # GenerateEmailClicksByUrlReport | Parameters for the email clicks by URL report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_email_clicks_by_url_report = egoi_api.GenerateEmailClicksByUrlReport() # GenerateEmailClicksByUrlReport | Parameters for the email clicks by URL report
 
 try:
     # Generate email clicks by URL report
@@ -214,8 +219,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -232,10 +240,10 @@ Generates a new email events report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -244,8 +252,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_email_events_report = egoi-api.GenerateEmailEventsReport() # GenerateEmailEventsReport | Parameters for the email events report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_email_events_report = egoi_api.GenerateEmailEventsReport() # GenerateEmailEventsReport | Parameters for the email events report
 
 try:
     # Generate email events report
@@ -281,8 +289,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -299,10 +310,10 @@ Generates a new SMS bounces report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -311,8 +322,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_sms_bounces_report = egoi-api.GenerateSmsBouncesReport() # GenerateSmsBouncesReport | Parameters for the SMS bounces report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_sms_bounces_report = egoi_api.GenerateSmsBouncesReport() # GenerateSmsBouncesReport | Parameters for the SMS bounces report
 
 try:
     # Generate SMS bounces report
@@ -348,8 +359,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -366,10 +380,10 @@ Generates a new email unsubscriptions report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -378,8 +392,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_email_unsubscriptions_report = egoi-api.GenerateEmailUnsubscriptionsReport() # GenerateEmailUnsubscriptionsReport | Parameters for the email unsubscriptions report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_email_unsubscriptions_report = egoi_api.GenerateEmailUnsubscriptionsReport() # GenerateEmailUnsubscriptionsReport | Parameters for the email unsubscriptions report
 
 try:
     # Generate email unsubscriptions report
@@ -415,8 +429,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -433,10 +450,10 @@ Generates a new form answers report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -445,8 +462,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_form_answers_report = egoi-api.GenerateFormAnswersReport() # GenerateFormAnswersReport | Parameters for the form answers report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_form_answers_report = egoi_api.GenerateFormAnswersReport() # GenerateFormAnswersReport | Parameters for the form answers report
 
 try:
     # Generate form answers report
@@ -482,8 +499,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -500,10 +520,10 @@ Generates a new sends report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -512,8 +532,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_sends_report = egoi-api.GenerateSendsReport() # GenerateSendsReport | Parameters for the sends report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_sends_report = egoi_api.GenerateSendsReport() # GenerateSendsReport | Parameters for the sends report
 
 try:
     # Generate sends report
@@ -549,8 +569,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -567,10 +590,10 @@ Generates a new SMS events report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -579,8 +602,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_sms_events_report = egoi-api.GenerateSmsEventsReport() # GenerateSmsEventsReport | Parameters for the SMS events report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_sms_events_report = egoi_api.GenerateSmsEventsReport() # GenerateSmsEventsReport | Parameters for the SMS events report
 
 try:
     # Generate SMS events report
@@ -616,8 +639,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -634,10 +660,10 @@ Generates a new subscriptions report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -646,8 +672,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_subscriptions_report = egoi-api.GenerateSubscriptionsReport() # GenerateSubscriptionsReport | Parameters for the subscriptions report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_subscriptions_report = egoi_api.GenerateSubscriptionsReport() # GenerateSubscriptionsReport | Parameters for the subscriptions report
 
 try:
     # Generate subscriptions report
@@ -683,8 +709,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -701,10 +730,10 @@ Generates a new unsubscriptions report
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -713,8 +742,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
-generate_unsubscriptions_report = egoi-api.GenerateUnsubscriptionsReport() # GenerateUnsubscriptionsReport | Parameters for the unsubscriptions report
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
+generate_unsubscriptions_report = egoi_api.GenerateUnsubscriptionsReport() # GenerateUnsubscriptionsReport | Parameters for the unsubscriptions report
 
 try:
     # Generate unsubscriptions report
@@ -750,8 +779,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -768,10 +800,10 @@ Returns all advanced reports
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -780,7 +812,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.AdvancedReportsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.AdvancedReportsApi(egoi_api.ApiClient(configuration))
 status = 'status_example' # str | Advanced report status (optional)
 title = 'title_example' # str | Advanced report title (optional)
 created_min = '2013-10-20T19:20:30+01:00' # datetime | Created initial date (optional)
@@ -830,8 +862,11 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,4 +1,4 @@
-# egoi-api.SmartSmsApi
+# egoi_api.SmartSmsApi
 
 All URIs are relative to *https://api.egoiapp.com*
 
@@ -22,10 +22,10 @@ Deploys and sends a smart sms message
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -34,9 +34,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.SmartSmsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.SmartSmsApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
-campaign_sms_send_request = egoi-api.CampaignSmsSendRequest() # CampaignSmsSendRequest | Parameters for the 'send sms' action
+campaign_sms_send_request = egoi_api.CampaignSmsSendRequest() # CampaignSmsSendRequest | Parameters for the 'send sms' action
 
 try:
     # Send smart sms message
@@ -73,8 +73,11 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -91,10 +94,10 @@ Creates a new smart sms campaign.                         **DISCLAIMER:** A URL 
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -103,8 +106,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.SmartSmsApi(egoi-api.ApiClient(configuration))
-smart_sms_campaign = egoi-api.SmartSmsCampaign() # SmartSmsCampaign | Parameters for the Smart Sms Campaign
+api_instance = egoi_api.SmartSmsApi(egoi_api.ApiClient(configuration))
+smart_sms_campaign = egoi_api.SmartSmsCampaign() # SmartSmsCampaign | Parameters for the Smart Sms Campaign
 
 try:
     # Create new smart sms campaign
@@ -141,7 +144,9 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -158,10 +163,10 @@ Update smart sms campaign
 ```python
 from __future__ import print_function
 import time
-import egoi-api
-from egoi-api.rest import ApiException
+import egoi_api
+from egoi_api.rest import ApiException
 from pprint import pprint
-configuration = egoi-api.Configuration()
+configuration = egoi_api.Configuration()
 # Configure API key authorization: Apikey
 configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -170,9 +175,9 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # Defining host is optional and default to https://api.egoiapp.com
 configuration.host = "https://api.egoiapp.com"
 # Create an instance of the API class
-api_instance = egoi-api.SmartSmsApi(egoi-api.ApiClient(configuration))
+api_instance = egoi_api.SmartSmsApi(egoi_api.ApiClient(configuration))
 campaign_hash = 'campaign_hash_example' # str | ID of the Campaign
-smart_sms_campaign_patch_request = egoi-api.SmartSmsCampaignPatchRequest() # SmartSmsCampaignPatchRequest | Parameters for the Smart Sms Campaign
+smart_sms_campaign_patch_request = egoi_api.SmartSmsCampaignPatchRequest() # SmartSmsCampaignPatchRequest | Parameters for the Smart Sms Campaign
 
 try:
     # Update a specific smart sms campaign
@@ -210,8 +215,11 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**408** | Request Timeout |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

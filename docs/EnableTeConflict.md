@@ -4,6 +4,7 @@ Error schema for lists conflicts
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**errors** | [**DomainListRequiredErrors**](DomainListRequiredErrors.md) |  | [optional] 
 **type** | **str** | RFC for status code definitions | [optional] 
 **title** | **str** | Error title | [optional] 
 **status** | **int** | Status code | [optional] 
