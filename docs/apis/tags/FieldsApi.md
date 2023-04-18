@@ -1187,7 +1187,7 @@ Type | Description  | Notes
 
 # **get_all_fields**
 <a name="get_all_fields"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} get_all_fields(list_id)
+> [ComplexField] get_all_fields(list_id)
 
 Get all fields
 
@@ -1332,27 +1332,10 @@ headers | Unset | headers were not defined |
 
 # SchemaFor200ResponseBodyApplicationJson
 
-Collection of fields
-
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  | Collection of fields | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**[items](#items)** | list, tuple,  | tuple,  | Returned fields | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
-
-# items
-
-Returned fields
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | Returned fields | 
+list, tuple,  | tuple,  |  | 
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes

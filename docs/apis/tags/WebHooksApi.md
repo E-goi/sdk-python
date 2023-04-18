@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Create new webhook
 
-Create a new webhook
+Create a new webhook <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Example
 
@@ -450,7 +450,7 @@ Type | Description  | Notes
 
 Get all webhooks
 
-Returns all webhooks
+Returns all webhooks <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Example
 

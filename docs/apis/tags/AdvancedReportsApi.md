@@ -9,10 +9,10 @@ Method | HTTP request | Description
 [**generate_email_clicks_by_contact_report**](#generate_email_clicks_by_contact_report) | **post** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 [**generate_email_clicks_by_url_report**](#generate_email_clicks_by_url_report) | **post** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
 [**generate_email_events_report**](#generate_email_events_report) | **post** /reports/advanced/email-events | Generate email events report
-[**generate_email_sms_report**](#generate_email_sms_report) | **post** /reports/advanced/sms-bounces | Generate SMS bounces report
 [**generate_email_unsubscriptions_report**](#generate_email_unsubscriptions_report) | **post** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
 [**generate_form_answers_report**](#generate_form_answers_report) | **post** /reports/advanced/form-answers | Generate form answers report
 [**generate_sends_report**](#generate_sends_report) | **post** /reports/advanced/sends | Generate sends report
+[**generate_sms_bounces_report**](#generate_sms_bounces_report) | **post** /reports/advanced/sms-bounces | Generate SMS bounces report
 [**generate_sms_events_report**](#generate_sms_events_report) | **post** /reports/advanced/sms-events | Generate SMS events report
 [**generate_subscriptions_report**](#generate_subscriptions_report) | **post** /reports/advanced/subscriptions | Generate subscriptions report
 [**generate_unsubscriptions_report**](#generate_unsubscriptions_report) | **post** /reports/advanced/unsubscriptions | Generate unsubscriptions report
@@ -96,6 +96,11 @@ with egoi_api.ApiClient(configuration) as api_client:
             campaign_fields=EmailBouncesCampaignFields(
                 internal_name=True,
                 campaign_hash=True,
+                send_date=True,
+                group=True,
+                channel=True,
+                sender=True,
+                type=True,
             ),
         ),
         options=AdvancedReportEmailBouncesOptions(
@@ -337,6 +342,11 @@ with egoi_api.ApiClient(configuration) as api_client:
                 internal_name=True,
                 campaign_hash=True,
                 url=True,
+                send_date=True,
+                group=True,
+                channel=True,
+                type=True,
+                sender=True,
                 city=True,
                 country=True,
                 region=True,
@@ -597,6 +607,10 @@ with egoi_api.ApiClient(configuration) as api_client:
                 internal_name=True,
                 campaign_hash=True,
                 url=True,
+                send_date=True,
+                group=True,
+                channel=True,
+                type=True,
                 city=True,
                 country=True,
                 region=True,
@@ -866,6 +880,10 @@ with egoi_api.ApiClient(configuration) as api_client:
                 campaign_hash=True,
                 send_date=True,
                 group=True,
+                channel=True,
+                type=True,
+                url=True,
+                sender=True,
                 city=True,
                 country=True,
                 region=True,
@@ -1047,262 +1065,6 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **generate_email_sms_report**
-<a name="generate_email_sms_report"></a>
-> AcceptedResponse generate_email_sms_report(generate_sms_bounces_report)
-
-Generate SMS bounces report
-
-Generates a new SMS bounces report
-
-### Example
-
-* Api Key Authentication (Apikey):
-```python
-import egoi_api
-from egoi_api.apis.tags import advanced_reports_api
-from egoi_api.model.request_timeout import RequestTimeout
-from egoi_api.model.unauthorized import Unauthorized
-from egoi_api.model.generate_sms_bounces_report import GenerateSmsBouncesReport
-from egoi_api.model.service_unavailable import ServiceUnavailable
-from egoi_api.model.bad_request import BadRequest
-from egoi_api.model.unprocessable_entity import UnprocessableEntity
-from egoi_api.model.internal_server_error import InternalServerError
-from egoi_api.model.accepted_response import AcceptedResponse
-from egoi_api.model.too_many_requests import TooManyRequests
-from egoi_api.model.forbidden import Forbidden
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.egoiapp.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = egoi_api.Configuration(
-    host = "https://api.egoiapp.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Apikey
-configuration.api_key['Apikey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Apikey'] = 'Bearer'
-# Enter a context with an instance of the API client
-with egoi_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = advanced_reports_api.AdvancedReportsApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    body = GenerateSmsBouncesReport(
-        title="Report title",
-        range=AdvancedReportRange(
-            start=None,
-,
-        ),
-        campaigns=AdvancedReportCampaigns([
-            AdvancedReportCampaignsObject(
-                list_id=QueryId(1),
-                type="ReportCampaignsAll",
-            )
-        ]),
-        columns=AdvancedReportSmsBouncesColumns(
-            list_base_fields=[
-                "list_base_fields_example"
-            ],
-            list_extra_fields=AdvancedReportListExtraFields([
-                dict(
-                    list_id=QueryId(1),
-                    fields=[
-                        "fields_example"
-                    ],
-                )
-            ]),
-            list_stats_fields=SmsBouncesListStatsFields(
-                delivery_answer=True,
-                delivery_date=True,
-            ),
-            campaign_fields=SmsBouncesCampaignFields(
-                internal_name=True,
-                campaign_hash=True,
-                send_date=True,
-                sender=True,
-            ),
-        ),
-        options=AdvancedReportSmsBouncesOptions(
-            notify=[
-                QueryId(1)
-            ],
-            grouping="by_campaign",
-        ),
-        callback_url="callback_url_example",
-    )
-    try:
-        # Generate SMS bounces report
-        api_response = api_instance.generate_email_sms_report(
-            body=body,
-        )
-        pprint(api_response)
-    except egoi_api.ApiException as e:
-        print("Exception when calling AdvancedReportsApi->generate_email_sms_report: %s\n" % e)
-```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### body
-
-# SchemaForRequestBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**GenerateSmsBouncesReport**](../../models/GenerateSmsBouncesReport.md) |  | 
-
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-202 | [ApiResponseFor202](#generate_email_sms_report.ApiResponseFor202) | Accepted
-400 | [ApiResponseFor400](#generate_email_sms_report.ApiResponseFor400) | Bad Request
-401 | [ApiResponseFor401](#generate_email_sms_report.ApiResponseFor401) | Unauthorized
-403 | [ApiResponseFor403](#generate_email_sms_report.ApiResponseFor403) | Forbidden
-408 | [ApiResponseFor408](#generate_email_sms_report.ApiResponseFor408) | Request Timeout
-422 | [ApiResponseFor422](#generate_email_sms_report.ApiResponseFor422) | Unprocessable Entity
-429 | [ApiResponseFor429](#generate_email_sms_report.ApiResponseFor429) | Too Many Requests
-500 | [ApiResponseFor500](#generate_email_sms_report.ApiResponseFor500) | Internal Server Error
-503 | [ApiResponseFor503](#generate_email_sms_report.ApiResponseFor503) | Service Unavailable
-
-#### generate_email_sms_report.ApiResponseFor202
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor202ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor202ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**AcceptedResponse**](../../models/AcceptedResponse.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Unauthorized**](../../models/Unauthorized.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Forbidden**](../../models/Forbidden.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor408
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor408ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor408ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RequestTimeout**](../../models/RequestTimeout.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor422
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor422ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor422ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**UnprocessableEntity**](../../models/UnprocessableEntity.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor429
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor429ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor429ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**TooManyRequests**](../../models/TooManyRequests.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**InternalServerError**](../../models/InternalServerError.md) |  | 
-
-
-#### generate_email_sms_report.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ServiceUnavailable**](../../models/ServiceUnavailable.md) |  | 
-
-
-### Authorization
-
-[Apikey](../../../README.md#Apikey)
-
-[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
-
 # **generate_email_unsubscriptions_report**
 <a name="generate_email_unsubscriptions_report"></a>
 > AcceptedResponse generate_email_unsubscriptions_report(generate_email_unsubscriptions_report)
@@ -1382,6 +1144,10 @@ with egoi_api.ApiClient(configuration) as api_client:
             campaign_fields=EmailUnsubscriptionsCampaignFields(
                 internal_name=True,
                 campaign_hash=True,
+                send_date=True,
+                group=True,
+                channel=True,
+                type=True,
                 sender=True,
             ),
         ),
@@ -1858,6 +1624,7 @@ with egoi_api.ApiClient(configuration) as api_client:
             campaign_fields=SendsCampaignFields(
                 internal_name=True,
                 campaign_hash=True,
+                send_date=True,
                 group=True,
                 channel=True,
                 type=True,
@@ -2037,6 +1804,265 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **generate_sms_bounces_report**
+<a name="generate_sms_bounces_report"></a>
+> AcceptedResponse generate_sms_bounces_report(generate_sms_bounces_report)
+
+Generate SMS bounces report
+
+Generates a new SMS bounces report
+
+### Example
+
+* Api Key Authentication (Apikey):
+```python
+import egoi_api
+from egoi_api.apis.tags import advanced_reports_api
+from egoi_api.model.request_timeout import RequestTimeout
+from egoi_api.model.unauthorized import Unauthorized
+from egoi_api.model.generate_sms_bounces_report import GenerateSmsBouncesReport
+from egoi_api.model.service_unavailable import ServiceUnavailable
+from egoi_api.model.bad_request import BadRequest
+from egoi_api.model.unprocessable_entity import UnprocessableEntity
+from egoi_api.model.internal_server_error import InternalServerError
+from egoi_api.model.accepted_response import AcceptedResponse
+from egoi_api.model.too_many_requests import TooManyRequests
+from egoi_api.model.forbidden import Forbidden
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.egoiapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = egoi_api.Configuration(
+    host = "https://api.egoiapp.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Apikey
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+# Enter a context with an instance of the API client
+with egoi_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = advanced_reports_api.AdvancedReportsApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = GenerateSmsBouncesReport(
+        title="Report title",
+        range=AdvancedReportRange(
+            start=None,
+,
+        ),
+        campaigns=AdvancedReportCampaigns([
+            AdvancedReportCampaignsObject(
+                list_id=QueryId(1),
+                type="ReportCampaignsAll",
+            )
+        ]),
+        columns=AdvancedReportSmsBouncesColumns(
+            list_base_fields=[
+                "list_base_fields_example"
+            ],
+            list_extra_fields=AdvancedReportListExtraFields([
+                dict(
+                    list_id=QueryId(1),
+                    fields=[
+                        "fields_example"
+                    ],
+                )
+            ]),
+            list_stats_fields=SmsBouncesListStatsFields(
+                delivery_answer=True,
+                delivery_date=True,
+            ),
+            campaign_fields=SmsBouncesCampaignFields(
+                internal_name=True,
+                campaign_hash=True,
+                send_date=True,
+                group=True,
+                channel=True,
+                type=True,
+                sender=True,
+            ),
+        ),
+        options=AdvancedReportSmsBouncesOptions(
+            notify=[
+                QueryId(1)
+            ],
+            grouping="by_campaign",
+        ),
+        callback_url="callback_url_example",
+    )
+    try:
+        # Generate SMS bounces report
+        api_response = api_instance.generate_sms_bounces_report(
+            body=body,
+        )
+        pprint(api_response)
+    except egoi_api.ApiException as e:
+        print("Exception when calling AdvancedReportsApi->generate_sms_bounces_report: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**GenerateSmsBouncesReport**](../../models/GenerateSmsBouncesReport.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+202 | [ApiResponseFor202](#generate_sms_bounces_report.ApiResponseFor202) | Accepted
+400 | [ApiResponseFor400](#generate_sms_bounces_report.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#generate_sms_bounces_report.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#generate_sms_bounces_report.ApiResponseFor403) | Forbidden
+408 | [ApiResponseFor408](#generate_sms_bounces_report.ApiResponseFor408) | Request Timeout
+422 | [ApiResponseFor422](#generate_sms_bounces_report.ApiResponseFor422) | Unprocessable Entity
+429 | [ApiResponseFor429](#generate_sms_bounces_report.ApiResponseFor429) | Too Many Requests
+500 | [ApiResponseFor500](#generate_sms_bounces_report.ApiResponseFor500) | Internal Server Error
+503 | [ApiResponseFor503](#generate_sms_bounces_report.ApiResponseFor503) | Service Unavailable
+
+#### generate_sms_bounces_report.ApiResponseFor202
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor202ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor202ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**AcceptedResponse**](../../models/AcceptedResponse.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**BadRequest**](../../models/BadRequest.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Unauthorized**](../../models/Unauthorized.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Forbidden**](../../models/Forbidden.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor408
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor408ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor408ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**RequestTimeout**](../../models/RequestTimeout.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor422
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor422ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor422ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**UnprocessableEntity**](../../models/UnprocessableEntity.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor429
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor429ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor429ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**TooManyRequests**](../../models/TooManyRequests.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**InternalServerError**](../../models/InternalServerError.md) |  | 
+
+
+#### generate_sms_bounces_report.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ServiceUnavailable**](../../models/ServiceUnavailable.md) |  | 
+
+
+### Authorization
+
+[Apikey](../../../README.md#Apikey)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **generate_sms_events_report**
 <a name="generate_sms_events_report"></a>
 > AcceptedResponse generate_sms_events_report(generate_sms_events_report)
@@ -2117,6 +2143,8 @@ with egoi_api.ApiClient(configuration) as api_client:
                 campaign_hash=True,
                 send_date=True,
                 group=True,
+                channel=True,
+                type=True,
                 sender=True,
             ),
         ),

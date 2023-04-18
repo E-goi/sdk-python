@@ -132,8 +132,12 @@ from egoi_api.model.connected_sites_product_embed_form_detail import ConnectedSi
 from egoi_api.model.connected_sites_products import ConnectedSitesProducts
 from egoi_api.model.contact import Contact
 from egoi_api.model.contact_activity import ContactActivity
+from egoi_api.model.contact_activity_abstract_actions_with_automations import ContactActivityAbstractActionsWithAutomations
+from egoi_api.model.contact_activity_abstract_actions_with_campaign import ContactActivityAbstractActionsWithCampaign
 from egoi_api.model.contact_activity_abstract_actions_with_data import ContactActivityAbstractActionsWithData
+from egoi_api.model.contact_activity_abstract_actions_with_tags import ContactActivityAbstractActionsWithTags
 from egoi_api.model.contact_activity_click import ContactActivityClick
+from egoi_api.model.contact_automations_activity import ContactAutomationsActivity
 from egoi_api.model.contact_base_extra import ContactBaseExtra
 from egoi_api.model.contact_base_extra_bulk import ContactBaseExtraBulk
 from egoi_api.model.contact_base_extra_full import ContactBaseExtraFull
@@ -152,6 +156,7 @@ from egoi_api.model.contact_base_with_status_no_removed_fields_schema import Con
 from egoi_api.model.contact_body_id import ContactBodyId
 from egoi_api.model.contact_bulk import ContactBulk
 from egoi_api.model.contact_bulk_file import ContactBulkFile
+from egoi_api.model.contact_campaign_activity import ContactCampaignActivity
 from egoi_api.model.contact_export_request import ContactExportRequest
 from egoi_api.model.contact_extra_field_cellphone import ContactExtraFieldCellphone
 from egoi_api.model.contact_extra_field_cellphone_bulk import ContactExtraFieldCellphoneBulk
@@ -179,6 +184,7 @@ from egoi_api.model.contact_query_id import ContactQueryId
 from egoi_api.model.contact_search_response import ContactSearchResponse
 from egoi_api.model.contact_status_fields_bulk_schema import ContactStatusFieldsBulkSchema
 from egoi_api.model.contact_status_fields_schema import ContactStatusFieldsSchema
+from egoi_api.model.contact_tag_activity import ContactTagActivity
 from egoi_api.model.contact_tags import ContactTags
 from egoi_api.model.contact_tags_bulk import ContactTagsBulk
 from egoi_api.model.contacts_action_update_contacts_schema import ContactsActionUpdateContactsSchema
@@ -241,6 +247,7 @@ from egoi_api.model.enable_te_conflicts_errors import EnableTeConflictsErrors
 from egoi_api.model.enable_transactional_conflict import EnableTransactionalConflict
 from egoi_api.model.enable_transactional_conflicts_errors import EnableTransactionalConflictsErrors
 from egoi_api.model.export_contacts_webhook_data import ExportContactsWebhookData
+from egoi_api.model.export_report_webhook_data import ExportReportWebhookData
 from egoi_api.model.field import Field
 from egoi_api.model.field_id import FieldId
 from egoi_api.model.field_in_use import FieldInUse
@@ -279,6 +286,7 @@ from egoi_api.model.id import Id
 from egoi_api.model.import_bulk_file_request import ImportBulkFileRequest
 from egoi_api.model.import_bulk_file_request_schema import ImportBulkFileRequestSchema
 from egoi_api.model.import_bulk_request import ImportBulkRequest
+from egoi_api.model.import_contacts_webhook_data import ImportContactsWebhookData
 from egoi_api.model.import_orders_bulk import ImportOrdersBulk
 from egoi_api.model.import_orders_bulk_bulk_request import ImportOrdersBulkBulkRequest
 from egoi_api.model.import_orders_bulk_bulk_request_items import ImportOrdersBulkBulkRequestItems

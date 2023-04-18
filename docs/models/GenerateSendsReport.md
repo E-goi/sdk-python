@@ -15,7 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **options** | [**AdvancedReportSendsOptions**](AdvancedReportSendsOptions.md) | [**AdvancedReportSendsOptions**](AdvancedReportSendsOptions.md) |  | 
 **range** | [**AdvancedReportRange**](AdvancedReportRange.md) | [**AdvancedReportRange**](AdvancedReportRange.md) |  | 
 **title** | str,  | str,  | Advanced report title | 
-**callback_url** | str,  | str,  | URL which will receive the information of the report | [optional] 
+**callback_url** | str,  | str,  | URL which will receive the information of the report &lt;a href&#x3D;&#x27;/usecases/callbacks/&#x27; target&#x3D;&#x27;_blank&#x27;&gt;[Go to callback documentation]&lt;/a&gt; | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # lists

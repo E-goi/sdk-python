@@ -241,7 +241,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _generate_email_sms_report_oapg(
+    def _generate_sms_bounces_report_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -254,7 +254,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _generate_email_sms_report_oapg(
+    def _generate_sms_bounces_report_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -268,7 +268,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _generate_email_sms_report_oapg(
+    def _generate_sms_bounces_report_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -279,7 +279,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _generate_email_sms_report_oapg(
+    def _generate_sms_bounces_report_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -292,7 +292,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _generate_email_sms_report_oapg(
+    def _generate_sms_bounces_report_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
@@ -352,11 +352,11 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class GenerateEmailSmsReport(BaseApi):
+class GenerateSmsBouncesReport(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def generate_email_sms_report(
+    def generate_sms_bounces_report(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -369,7 +369,7 @@ class GenerateEmailSmsReport(BaseApi):
     ]: ...
 
     @typing.overload
-    def generate_email_sms_report(
+    def generate_sms_bounces_report(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -383,7 +383,7 @@ class GenerateEmailSmsReport(BaseApi):
 
 
     @typing.overload
-    def generate_email_sms_report(
+    def generate_sms_bounces_report(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -394,7 +394,7 @@ class GenerateEmailSmsReport(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def generate_email_sms_report(
+    def generate_sms_bounces_report(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -407,7 +407,7 @@ class GenerateEmailSmsReport(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def generate_email_sms_report(
+    def generate_sms_bounces_report(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
@@ -416,7 +416,7 @@ class GenerateEmailSmsReport(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._generate_email_sms_report_oapg(
+        return self._generate_sms_bounces_report_oapg(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -490,7 +490,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._generate_email_sms_report_oapg(
+        return self._generate_sms_bounces_report_oapg(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,

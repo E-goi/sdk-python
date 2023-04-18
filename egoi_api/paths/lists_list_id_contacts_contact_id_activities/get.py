@@ -60,6 +60,342 @@ class LimitSchema(
         inclusive_minimum = 1
 DateMinSchema = schemas.DateTimeSchema
 DateMaxSchema = schemas.DateTimeSchema
+
+
+class ActionNameSchema(
+    schemas.EnumBase,
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        enum_value_to_name = {
+            "email_open": "EMAIL_OPEN",
+            "email_click": "EMAIL_CLICK",
+            "forward": "FORWARD",
+            "conversion": "CONVERSION",
+            "email_send": "EMAIL_SEND",
+            "sms_send": "SMS_SEND",
+            "voice_send": "VOICE_SEND",
+            "mms_send": "MMS_SEND",
+            "sms_report": "SMS_REPORT",
+            "voice_report": "VOICE_REPORT",
+            "invitation_send": "INVITATION_SEND",
+            "invitation_open": "INVITATION_OPEN",
+            "mms_open": "MMS_OPEN",
+            "unsubscribe": "UNSUBSCRIBE",
+            "email_soft_bounce": "EMAIL_SOFT_BOUNCE",
+            "email_hard_bounce": "EMAIL_HARD_BOUNCE",
+            "subscription": "SUBSCRIPTION",
+            "resubscription": "RESUBSCRIPTION",
+            "unsubscribe_reason": "UNSUBSCRIBE_REASON",
+            "facebook_like": "FACEBOOK_LIKE",
+            "social_share": "SOCIAL_SHARE",
+            "unsubscribe_manual": "UNSUBSCRIBE_MANUAL",
+            "double_optin": "DOUBLE_OPTIN",
+            "double_optin_resend": "DOUBLE_OPTIN_RESEND",
+            "email_spam_complaint": "EMAIL_SPAM_COMPLAINT",
+            "email_field_disable": "EMAIL_FIELD_DISABLE",
+            "cellphone_field_disable": "CELLPHONE_FIELD_DISABLE",
+            "phone_field_disable": "PHONE_FIELD_DISABLE",
+            "unsubscribe_api": "UNSUBSCRIBE_API",
+            "email_field_enable": "EMAIL_FIELD_ENABLE",
+            "cellphone_field_enable": "CELLPHONE_FIELD_ENABLE",
+            "phone_field_enable": "PHONE_FIELD_ENABLE",
+            "edit_subscription": "EDIT_SUBSCRIPTION",
+            "double_optedit": "DOUBLE_OPTEDIT",
+            "automation_event": "AUTOMATION_EVENT",
+            "push_send": "PUSH_SEND",
+            "push_open": "PUSH_OPEN",
+            "push_click": "PUSH_CLICK",
+            "push_received": "PUSH_RECEIVED",
+            "push_error": "PUSH_ERROR",
+            "push_canceled": "PUSH_CANCELED",
+            "reply_to_email": "REPLY_TO_EMAIL",
+            "web_push_send": "WEB_PUSH_SEND",
+            "web_push_delivered": "WEB_PUSH_DELIVERED",
+            "web_push_open": "WEB_PUSH_OPEN",
+            "web_push_bounce": "WEB_PUSH_BOUNCE",
+            "web_push_click": "WEB_PUSH_CLICK",
+            "web_push_subscription": "WEB_PUSH_SUBSCRIPTION",
+            "web_push_unsubscription": "WEB_PUSH_UNSUBSCRIPTION",
+            "add_push_contact": "ADD_PUSH_CONTACT",
+            "remove_push_contact": "REMOVE_PUSH_CONTACT",
+            "forget_subscription": "FORGET_SUBSCRIPTION",
+            "change_consent": "CHANGE_CONSENT",
+            "push_unsubscription": "PUSH_UNSUBSCRIPTION",
+            "voice_menu_event": "VOICE_MENU_EVENT",
+            "voice_redirect": "VOICE_REDIRECT",
+            "automation_action": "AUTOMATION_ACTION",
+            "automation_trigger": "AUTOMATION_TRIGGER",
+            "push_delivered": "PUSH_DELIVERED",
+            "attach_tag": "ATTACH_TAG",
+            "detach_tag": "DETACH_TAG",
+            "smart_sms_send": "SMART_SMS_SEND",
+            "smart_sms_open": "SMART_SMS_OPEN",
+            "smart_sms_click": "SMART_SMS_CLICK",
+            "smart_sms_report": "SMART_SMS_REPORT",
+        }
+    
+    @schemas.classproperty
+    def EMAIL_OPEN(cls):
+        return cls("email_open")
+    
+    @schemas.classproperty
+    def EMAIL_CLICK(cls):
+        return cls("email_click")
+    
+    @schemas.classproperty
+    def FORWARD(cls):
+        return cls("forward")
+    
+    @schemas.classproperty
+    def CONVERSION(cls):
+        return cls("conversion")
+    
+    @schemas.classproperty
+    def EMAIL_SEND(cls):
+        return cls("email_send")
+    
+    @schemas.classproperty
+    def SMS_SEND(cls):
+        return cls("sms_send")
+    
+    @schemas.classproperty
+    def VOICE_SEND(cls):
+        return cls("voice_send")
+    
+    @schemas.classproperty
+    def MMS_SEND(cls):
+        return cls("mms_send")
+    
+    @schemas.classproperty
+    def SMS_REPORT(cls):
+        return cls("sms_report")
+    
+    @schemas.classproperty
+    def VOICE_REPORT(cls):
+        return cls("voice_report")
+    
+    @schemas.classproperty
+    def INVITATION_SEND(cls):
+        return cls("invitation_send")
+    
+    @schemas.classproperty
+    def INVITATION_OPEN(cls):
+        return cls("invitation_open")
+    
+    @schemas.classproperty
+    def MMS_OPEN(cls):
+        return cls("mms_open")
+    
+    @schemas.classproperty
+    def UNSUBSCRIBE(cls):
+        return cls("unsubscribe")
+    
+    @schemas.classproperty
+    def EMAIL_SOFT_BOUNCE(cls):
+        return cls("email_soft_bounce")
+    
+    @schemas.classproperty
+    def EMAIL_HARD_BOUNCE(cls):
+        return cls("email_hard_bounce")
+    
+    @schemas.classproperty
+    def SUBSCRIPTION(cls):
+        return cls("subscription")
+    
+    @schemas.classproperty
+    def RESUBSCRIPTION(cls):
+        return cls("resubscription")
+    
+    @schemas.classproperty
+    def UNSUBSCRIBE_REASON(cls):
+        return cls("unsubscribe_reason")
+    
+    @schemas.classproperty
+    def FACEBOOK_LIKE(cls):
+        return cls("facebook_like")
+    
+    @schemas.classproperty
+    def SOCIAL_SHARE(cls):
+        return cls("social_share")
+    
+    @schemas.classproperty
+    def UNSUBSCRIBE_MANUAL(cls):
+        return cls("unsubscribe_manual")
+    
+    @schemas.classproperty
+    def DOUBLE_OPTIN(cls):
+        return cls("double_optin")
+    
+    @schemas.classproperty
+    def DOUBLE_OPTIN_RESEND(cls):
+        return cls("double_optin_resend")
+    
+    @schemas.classproperty
+    def EMAIL_SPAM_COMPLAINT(cls):
+        return cls("email_spam_complaint")
+    
+    @schemas.classproperty
+    def EMAIL_FIELD_DISABLE(cls):
+        return cls("email_field_disable")
+    
+    @schemas.classproperty
+    def CELLPHONE_FIELD_DISABLE(cls):
+        return cls("cellphone_field_disable")
+    
+    @schemas.classproperty
+    def PHONE_FIELD_DISABLE(cls):
+        return cls("phone_field_disable")
+    
+    @schemas.classproperty
+    def UNSUBSCRIBE_API(cls):
+        return cls("unsubscribe_api")
+    
+    @schemas.classproperty
+    def EMAIL_FIELD_ENABLE(cls):
+        return cls("email_field_enable")
+    
+    @schemas.classproperty
+    def CELLPHONE_FIELD_ENABLE(cls):
+        return cls("cellphone_field_enable")
+    
+    @schemas.classproperty
+    def PHONE_FIELD_ENABLE(cls):
+        return cls("phone_field_enable")
+    
+    @schemas.classproperty
+    def EDIT_SUBSCRIPTION(cls):
+        return cls("edit_subscription")
+    
+    @schemas.classproperty
+    def DOUBLE_OPTEDIT(cls):
+        return cls("double_optedit")
+    
+    @schemas.classproperty
+    def AUTOMATION_EVENT(cls):
+        return cls("automation_event")
+    
+    @schemas.classproperty
+    def PUSH_SEND(cls):
+        return cls("push_send")
+    
+    @schemas.classproperty
+    def PUSH_OPEN(cls):
+        return cls("push_open")
+    
+    @schemas.classproperty
+    def PUSH_CLICK(cls):
+        return cls("push_click")
+    
+    @schemas.classproperty
+    def PUSH_RECEIVED(cls):
+        return cls("push_received")
+    
+    @schemas.classproperty
+    def PUSH_ERROR(cls):
+        return cls("push_error")
+    
+    @schemas.classproperty
+    def PUSH_CANCELED(cls):
+        return cls("push_canceled")
+    
+    @schemas.classproperty
+    def REPLY_TO_EMAIL(cls):
+        return cls("reply_to_email")
+    
+    @schemas.classproperty
+    def WEB_PUSH_SEND(cls):
+        return cls("web_push_send")
+    
+    @schemas.classproperty
+    def WEB_PUSH_DELIVERED(cls):
+        return cls("web_push_delivered")
+    
+    @schemas.classproperty
+    def WEB_PUSH_OPEN(cls):
+        return cls("web_push_open")
+    
+    @schemas.classproperty
+    def WEB_PUSH_BOUNCE(cls):
+        return cls("web_push_bounce")
+    
+    @schemas.classproperty
+    def WEB_PUSH_CLICK(cls):
+        return cls("web_push_click")
+    
+    @schemas.classproperty
+    def WEB_PUSH_SUBSCRIPTION(cls):
+        return cls("web_push_subscription")
+    
+    @schemas.classproperty
+    def WEB_PUSH_UNSUBSCRIPTION(cls):
+        return cls("web_push_unsubscription")
+    
+    @schemas.classproperty
+    def ADD_PUSH_CONTACT(cls):
+        return cls("add_push_contact")
+    
+    @schemas.classproperty
+    def REMOVE_PUSH_CONTACT(cls):
+        return cls("remove_push_contact")
+    
+    @schemas.classproperty
+    def FORGET_SUBSCRIPTION(cls):
+        return cls("forget_subscription")
+    
+    @schemas.classproperty
+    def CHANGE_CONSENT(cls):
+        return cls("change_consent")
+    
+    @schemas.classproperty
+    def PUSH_UNSUBSCRIPTION(cls):
+        return cls("push_unsubscription")
+    
+    @schemas.classproperty
+    def VOICE_MENU_EVENT(cls):
+        return cls("voice_menu_event")
+    
+    @schemas.classproperty
+    def VOICE_REDIRECT(cls):
+        return cls("voice_redirect")
+    
+    @schemas.classproperty
+    def AUTOMATION_ACTION(cls):
+        return cls("automation_action")
+    
+    @schemas.classproperty
+    def AUTOMATION_TRIGGER(cls):
+        return cls("automation_trigger")
+    
+    @schemas.classproperty
+    def PUSH_DELIVERED(cls):
+        return cls("push_delivered")
+    
+    @schemas.classproperty
+    def ATTACH_TAG(cls):
+        return cls("attach_tag")
+    
+    @schemas.classproperty
+    def DETACH_TAG(cls):
+        return cls("detach_tag")
+    
+    @schemas.classproperty
+    def SMART_SMS_SEND(cls):
+        return cls("smart_sms_send")
+    
+    @schemas.classproperty
+    def SMART_SMS_OPEN(cls):
+        return cls("smart_sms_open")
+    
+    @schemas.classproperty
+    def SMART_SMS_CLICK(cls):
+        return cls("smart_sms_click")
+    
+    @schemas.classproperty
+    def SMART_SMS_REPORT(cls):
+        return cls("smart_sms_report")
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -72,6 +408,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
         'date_min': typing.Union[DateMinSchema, str, datetime, ],
         'date_max': typing.Union[DateMaxSchema, str, datetime, ],
+        'action_name': typing.Union[ActionNameSchema, str, ],
     },
     total=False
 )
@@ -103,6 +440,12 @@ request_query_date_max = api_client.QueryParameter(
     name="date_max",
     style=api_client.ParameterStyle.FORM,
     schema=DateMaxSchema,
+    explode=True,
+)
+request_query_action_name = api_client.QueryParameter(
+    name="action_name",
+    style=api_client.ParameterStyle.FORM,
+    schema=ActionNameSchema,
     explode=True,
 )
 # Path params
@@ -461,6 +804,7 @@ class BaseApi(api_client.Api):
             request_query_limit,
             request_query_date_min,
             request_query_date_max,
+            request_query_action_name,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

@@ -2851,6 +2851,7 @@ with egoi_api.ApiClient(configuration) as api_client:
         'limit': 10,
         'date_min': "1970-01-01T00:00:00.00Z",
         'date_max': "1970-01-01T00:00:00.00Z",
+        'action_name': "email_open",
     }
     try:
         # Get all contact activities
@@ -2882,6 +2883,7 @@ offset | OffsetSchema | | optional
 limit | LimitSchema | | optional
 date_min | DateMinSchema | | optional
 date_max | DateMaxSchema | | optional
+action_name | ActionNameSchema | | optional
 
 
 # OffsetSchema
@@ -2915,6 +2917,13 @@ The date and time
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime,  | str,  | The date and time | value must conform to RFC-3339 date-time
+
+# ActionNameSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | must be one of ["email_open", "email_click", "forward", "conversion", "email_send", "sms_send", "voice_send", "mms_send", "sms_report", "voice_report", "invitation_send", "invitation_open", "mms_open", "unsubscribe", "email_soft_bounce", "email_hard_bounce", "subscription", "resubscription", "unsubscribe_reason", "facebook_like", "social_share", "unsubscribe_manual", "double_optin", "double_optin_resend", "email_spam_complaint", "email_field_disable", "cellphone_field_disable", "phone_field_disable", "unsubscribe_api", "email_field_enable", "cellphone_field_enable", "phone_field_enable", "edit_subscription", "double_optedit", "automation_event", "push_send", "push_open", "push_click", "push_received", "push_error", "push_canceled", "reply_to_email", "web_push_send", "web_push_delivered", "web_push_open", "web_push_bounce", "web_push_click", "web_push_subscription", "web_push_unsubscription", "add_push_contact", "remove_push_contact", "forget_subscription", "change_consent", "push_unsubscription", "voice_menu_event", "voice_redirect", "automation_action", "automation_trigger", "push_delivered", "attach_tag", "detach_tag", "smart_sms_send", "smart_sms_open", "smart_sms_click", "smart_sms_report", ] 
 
 ### path_params
 #### RequestPathParams

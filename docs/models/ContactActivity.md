@@ -12,6 +12,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Contact activity schem
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [ContactActivityClick](ContactActivityClick.md) | [**ContactActivityClick**](ContactActivityClick.md) | [**ContactActivityClick**](ContactActivityClick.md) |  | 
+[ContactCampaignActivity](ContactCampaignActivity.md) | [**ContactCampaignActivity**](ContactCampaignActivity.md) | [**ContactCampaignActivity**](ContactCampaignActivity.md) |  | 
+[ContactTagActivity](ContactTagActivity.md) | [**ContactTagActivity**](ContactTagActivity.md) | [**ContactTagActivity**](ContactTagActivity.md) |  | 
+[ContactAutomationsActivity](ContactAutomationsActivity.md) | [**ContactAutomationsActivity**](ContactAutomationsActivity.md) | [**ContactAutomationsActivity**](ContactAutomationsActivity.md) |  | 
 [ContactOtherActivity](ContactOtherActivity.md) | [**ContactOtherActivity**](ContactOtherActivity.md) | [**ContactOtherActivity**](ContactOtherActivity.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

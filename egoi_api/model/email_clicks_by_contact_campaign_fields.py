@@ -3,7 +3,7 @@
 """
     APIv3 (New)
 
-     # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>  # noqa: E501
+     # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>  # noqa: E501
 
     The version of the OpenAPI document: 3.0.0
     Generated by: https://openapi-generator.tech
@@ -37,13 +37,8 @@ class EmailClicksByContactCampaignFields(
 
     class MetaOapg:
         required = {
-            "country",
             "internal_name",
-            "os",
             "campaign_hash",
-            "city",
-            "program",
-            "region",
             "url",
         }
         
@@ -51,6 +46,11 @@ class EmailClicksByContactCampaignFields(
             internal_name = schemas.BoolSchema
             campaign_hash = schemas.BoolSchema
             url = schemas.BoolSchema
+            send_date = schemas.BoolSchema
+            group = schemas.BoolSchema
+            channel = schemas.BoolSchema
+            type = schemas.BoolSchema
+            sender = schemas.BoolSchema
             city = schemas.BoolSchema
             country = schemas.BoolSchema
             region = schemas.BoolSchema
@@ -60,6 +60,11 @@ class EmailClicksByContactCampaignFields(
                 "internal_name": internal_name,
                 "campaign_hash": campaign_hash,
                 "url": url,
+                "send_date": send_date,
+                "group": group,
+                "channel": channel,
+                "type": type,
+                "sender": sender,
                 "city": city,
                 "country": country,
                 "region": region,
@@ -67,13 +72,8 @@ class EmailClicksByContactCampaignFields(
                 "os": os,
             }
     
-    country: MetaOapg.properties.country
     internal_name: MetaOapg.properties.internal_name
-    os: MetaOapg.properties.os
     campaign_hash: MetaOapg.properties.campaign_hash
-    city: MetaOapg.properties.city
-    program: MetaOapg.properties.program
-    region: MetaOapg.properties.region
     url: MetaOapg.properties.url
     
     @typing.overload
@@ -84,6 +84,21 @@ class EmailClicksByContactCampaignFields(
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["url"]) -> MetaOapg.properties.url: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["send_date"]) -> MetaOapg.properties.send_date: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["group"]) -> MetaOapg.properties.group: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["channel"]) -> MetaOapg.properties.channel: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> MetaOapg.properties.type: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["sender"]) -> MetaOapg.properties.sender: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["city"]) -> MetaOapg.properties.city: ...
@@ -103,7 +118,7 @@ class EmailClicksByContactCampaignFields(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["internal_name", "campaign_hash", "url", "city", "country", "region", "program", "os", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["internal_name", "campaign_hash", "url", "send_date", "group", "channel", "type", "sender", "city", "country", "region", "program", "os", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -118,52 +133,77 @@ class EmailClicksByContactCampaignFields(
     def get_item_oapg(self, name: typing_extensions.Literal["url"]) -> MetaOapg.properties.url: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["city"]) -> MetaOapg.properties.city: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["send_date"]) -> typing.Union[MetaOapg.properties.send_date, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["country"]) -> MetaOapg.properties.country: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["group"]) -> typing.Union[MetaOapg.properties.group, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["region"]) -> MetaOapg.properties.region: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["channel"]) -> typing.Union[MetaOapg.properties.channel, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["program"]) -> MetaOapg.properties.program: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["type"]) -> typing.Union[MetaOapg.properties.type, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["os"]) -> MetaOapg.properties.os: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["sender"]) -> typing.Union[MetaOapg.properties.sender, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["city"]) -> typing.Union[MetaOapg.properties.city, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["country"]) -> typing.Union[MetaOapg.properties.country, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["region"]) -> typing.Union[MetaOapg.properties.region, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["program"]) -> typing.Union[MetaOapg.properties.program, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["os"]) -> typing.Union[MetaOapg.properties.os, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["internal_name", "campaign_hash", "url", "city", "country", "region", "program", "os", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["internal_name", "campaign_hash", "url", "send_date", "group", "channel", "type", "sender", "city", "country", "region", "program", "os", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        country: typing.Union[MetaOapg.properties.country, bool, ],
         internal_name: typing.Union[MetaOapg.properties.internal_name, bool, ],
-        os: typing.Union[MetaOapg.properties.os, bool, ],
         campaign_hash: typing.Union[MetaOapg.properties.campaign_hash, bool, ],
-        city: typing.Union[MetaOapg.properties.city, bool, ],
-        program: typing.Union[MetaOapg.properties.program, bool, ],
-        region: typing.Union[MetaOapg.properties.region, bool, ],
         url: typing.Union[MetaOapg.properties.url, bool, ],
+        send_date: typing.Union[MetaOapg.properties.send_date, bool, schemas.Unset] = schemas.unset,
+        group: typing.Union[MetaOapg.properties.group, bool, schemas.Unset] = schemas.unset,
+        channel: typing.Union[MetaOapg.properties.channel, bool, schemas.Unset] = schemas.unset,
+        type: typing.Union[MetaOapg.properties.type, bool, schemas.Unset] = schemas.unset,
+        sender: typing.Union[MetaOapg.properties.sender, bool, schemas.Unset] = schemas.unset,
+        city: typing.Union[MetaOapg.properties.city, bool, schemas.Unset] = schemas.unset,
+        country: typing.Union[MetaOapg.properties.country, bool, schemas.Unset] = schemas.unset,
+        region: typing.Union[MetaOapg.properties.region, bool, schemas.Unset] = schemas.unset,
+        program: typing.Union[MetaOapg.properties.program, bool, schemas.Unset] = schemas.unset,
+        os: typing.Union[MetaOapg.properties.os, bool, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'EmailClicksByContactCampaignFields':
         return super().__new__(
             cls,
             *args,
-            country=country,
             internal_name=internal_name,
-            os=os,
             campaign_hash=campaign_hash,
-            city=city,
-            program=program,
-            region=region,
             url=url,
+            send_date=send_date,
+            group=group,
+            channel=channel,
+            type=type,
+            sender=sender,
+            city=city,
+            country=country,
+            region=region,
+            program=program,
+            os=os,
             _configuration=_configuration,
             **kwargs,
         )
